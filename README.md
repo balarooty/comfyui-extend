@@ -18,6 +18,26 @@ ComfyUI/custom_nodes/ComfyUI-LTXFlow
 
 Then restart ComfyUI.
 
+## Download Models
+
+From this repo:
+
+```bash
+COMFYUI_DIR=/workspace/ComfyUI bash scripts/download_models.sh
+```
+
+Change `COMFYUI_DIR` to your actual ComfyUI path. The script downloads every model needed by:
+
+```text
+workflows/05_qwen_edit_to_ltx_first_last.json
+```
+
+It supports Hugging Face auth if needed:
+
+```bash
+HF_TOKEN=hf_xxxxx COMFYUI_DIR=/workspace/ComfyUI bash scripts/download_models.sh
+```
+
 ## Frontend
 
 Custom frontend code lives here:
@@ -73,6 +93,15 @@ Required Qwen models from the official ComfyUI template:
 - `Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors` in `ComfyUI/models/loras/`
 - `qwen_image_edit_2511_bf16.safetensors` in `ComfyUI/models/diffusion_models/`
 - `qwen_image_vae.safetensors` in `ComfyUI/models/vae/`
+
+Required LTX 2.3 models:
+
+- `ltx-2.3-22b-dev-fp8.safetensors` in `ComfyUI/models/checkpoints/`
+- `gemma_3_12B_it_fp8_scaled.safetensors` in `ComfyUI/models/text_encoders/`
+- `ltx-2.3-22b-distilled-lora-384.safetensors` in `ComfyUI/models/loras/`
+- `ltx-2.3-spatial-upscaler-x2-1.1.safetensors` in `ComfyUI/models/latent_upscale_models/`
+
+You do not need `ltx-av-step-1751000_vocoder_24K.safetensors` for this workflow. That was an older/reference workflow name, not the current LTX 2.3 filename we use here.
 
 The workflow uses the official Qwen Image Edit 2511 subgraph node from ComfyUI's workflow templates.
 

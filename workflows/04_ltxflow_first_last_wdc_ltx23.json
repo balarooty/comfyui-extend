@@ -5265,7 +5265,7 @@
               "Node name for S&R": "LatentUpscaleModelLoader"
             },
             "widgets_values": [
-              "ltx-2.3-spatial-upscaler-x1.5-1.0.safetensors"
+              "ltx-2.3-spatial-upscaler-x2-1.1.safetensors"
             ],
             "color": "#222",
             "bgcolor": "#000"
@@ -5853,7 +5853,7 @@
               "Node name for S&R": "LTXAVTextEncoderLoader"
             },
             "widgets_values": [
-              "gemma_3_12B_it_fp4_mixed.safetensors",
+              "gemma_3_12B_it_fp8_scaled.safetensors",
               "ltx-2.3-22b-dev-fp8.safetensors",
               "default"
             ],
@@ -6365,7 +6365,7 @@
               ]
             },
             "widgets_values": [
-              "ltx2\\ltx-2.3-22b-distilled-lora-dynamic_fro09_avg_rank_105_bf16.safetensors",
+              "ltx-2.3-22b-distilled-lora-384.safetensors",
               0.5
             ],
             "color": "#222",

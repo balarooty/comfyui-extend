@@ -118,3 +118,14 @@ source image + Qwen edited image
 For a start-to-end transition, keep `first_frame_source = source_image`.
 
 For animating only the edited scene, set `first_frame_source = qwen_edited_image`, but that removes the visible transition from original to edited frame.
+
+Current LTX model names used by the workflow:
+
+```text
+ltx-2.3-22b-dev-fp8.safetensors
+gemma_3_12B_it_fp8_scaled.safetensors
+ltx-2.3-22b-distilled-lora-384.safetensors
+ltx-2.3-spatial-upscaler-x2-1.1.safetensors
+```
+
+Do not look for `ltx-av-step-1751000_vocoder_24K.safetensors`; that was from the older reference workflow.
