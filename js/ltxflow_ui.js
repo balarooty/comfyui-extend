@@ -16,6 +16,11 @@ const NODE_HELP = {
     bgcolor: "#1e301b",
     title: "Inject first and last frames into the real LTX conditioning and latent path.",
   },
+  LTXFlowQwenEditBridge: {
+    color: "#70558a",
+    bgcolor: "#2c2038",
+    title: "Turn Qwen Image Edit output into first/last LTX keyframes with matching dimensions.",
+  },
   LTXFlowTailGuide: {
     color: "#7d4f31",
     bgcolor: "#341f14",

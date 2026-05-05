@@ -49,6 +49,33 @@ Use this one for the first real test. It requires the same dependencies as the r
 - VideoHelperSuite `SaveVideo`/video combine dependencies
 - this `ComfyUI-LTXFlow` package
 
+Qwen Image Edit to LTX first/last workflow:
+
+```text
+workflows/05_qwen_edit_to_ltx_first_last.json
+```
+
+This is the main Qwen + LTX workflow. It wires:
+
+```text
+source image + reference image
+  -> Image Edit (Qwen-Image 2511)
+  -> LTX Flow - Qwen Edit Bridge
+  -> LTX Flow - First/Last Guide
+  -> LTX sampler/video output
+```
+
+The bridge sends the original source image as the LTX first frame and the Qwen-edited image as the LTX last frame.
+
+Required Qwen models from the official ComfyUI template:
+
+- `qwen_2.5_vl_7b_fp8_scaled.safetensors` in `ComfyUI/models/text_encoders/`
+- `Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors` in `ComfyUI/models/loras/`
+- `qwen_image_edit_2511_bf16.safetensors` in `ComfyUI/models/diffusion_models/`
+- `qwen_image_vae.safetensors` in `ComfyUI/models/vae/`
+
+The workflow uses the official Qwen Image Edit 2511 subgraph node from ComfyUI's workflow templates.
+
 The guide section is:
 
 ```text
@@ -125,6 +152,21 @@ Output:
 - guided `latent`
 
 This is the important node for Frames-to-Video style generation. It uses ComfyUI's `LTXVAddGuide` internals to inject the first frame at frame `0` and the last frame at frame `-1`.
+
+### LTX Flow - Qwen Edit Bridge
+
+Input:
+
+- `source_image`
+- `qwen_edited_image`
+
+Output:
+
+- `first_frame`
+- `last_frame`
+- `keyframe_batch`
+
+This node resizes the source and Qwen-edited image to matching dimensions, enforces a configurable multiple such as `32`, and prepares them for `LTX Flow - First/Last Guide`.
 
 ### LTX Flow - Tail Guide
 

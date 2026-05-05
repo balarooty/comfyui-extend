@@ -89,3 +89,32 @@ MultiImageLoader.multi_output
 The `First/Last Guide` node receives the real LTX conditioning, VAE, and latent inputs, then returns updated conditioning and latent outputs to the existing sampler path.
 
 This is the right pattern for first/last frame video. The earlier utility workflows are only tests for our helper nodes.
+
+## Qwen Edit To LTX
+
+Use:
+
+```text
+workflows/05_qwen_edit_to_ltx_first_last.json
+```
+
+This workflow starts with the official Qwen Image Edit 2511 subgraph:
+
+```text
+LoadImage source
+LoadImage reference/style/material
+  -> Image Edit (Qwen-Image 2511)
+```
+
+Then it hands off to LTXFlow:
+
+```text
+source image + Qwen edited image
+  -> Qwen Edit Bridge
+  -> First/Last Guide
+  -> LTX sampler
+```
+
+For a start-to-end transition, keep `first_frame_source = source_image`.
+
+For animating only the edited scene, set `first_frame_source = qwen_edited_image`, but that removes the visible transition from original to edited frame.
