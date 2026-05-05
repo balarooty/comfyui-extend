@@ -1,0 +1,148 @@
+{
+  "last_node_id": 6,
+  "last_link_id": 5,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "LoadImage",
+      "pos": [80, 140],
+      "size": [315, 314],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {"name": "IMAGE", "type": "IMAGE", "links": [1, 3], "slot_index": 0},
+        {"name": "MASK", "type": "MASK", "links": null, "slot_index": 1}
+      ],
+      "properties": {"Node name for S&R": "LoadImage"},
+      "widgets_values": ["clip_1.png", "image"]
+    },
+    {
+      "id": 2,
+      "type": "LTXFlowExtractFrame",
+      "pos": [470, 80],
+      "size": [260, 90],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {"name": "video_frames", "type": "IMAGE", "link": 1},
+        {"name": "index", "type": "INT", "widget": {"name": "index"}, "link": null}
+      ],
+      "outputs": [
+        {"name": "frame", "type": "IMAGE", "links": [2], "slot_index": 0},
+        {"name": "resolved_index", "type": "INT", "links": null, "slot_index": 1}
+      ],
+      "properties": {"Node name for S&R": "LTXFlowExtractFrame"},
+      "widgets_values": [-1]
+    },
+    {
+      "id": 3,
+      "type": "PreviewImage",
+      "pos": [800, 40],
+      "size": [310, 246],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {"name": "images", "type": "IMAGE", "link": 2}
+      ],
+      "outputs": [],
+      "properties": {"Node name for S&R": "PreviewImage"},
+      "widgets_values": []
+    },
+    {
+      "id": 4,
+      "type": "LTXFlowExtractTail",
+      "pos": [470, 260],
+      "size": [260, 90],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {"name": "video_frames", "type": "IMAGE", "link": 3},
+        {"name": "tail_length", "type": "INT", "widget": {"name": "tail_length"}, "link": null}
+      ],
+      "outputs": [
+        {"name": "tail_frames", "type": "IMAGE", "links": [4], "slot_index": 0},
+        {"name": "actual_frame_count", "type": "INT", "links": null, "slot_index": 1}
+      ],
+      "properties": {"Node name for S&R": "LTXFlowExtractTail"},
+      "widgets_values": [17]
+    },
+    {
+      "id": 5,
+      "type": "LTXFlowSceneBuilder",
+      "pos": [800, 320],
+      "size": [300, 210],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {"name": "clip_1", "type": "IMAGE", "link": 4},
+        {"name": "deduplicate_joins", "type": "BOOLEAN", "widget": {"name": "deduplicate_joins"}, "link": null},
+        {"name": "fps", "type": "INT", "widget": {"name": "fps"}, "link": null},
+        {"name": "clip_2", "type": "IMAGE", "link": null},
+        {"name": "clip_3", "type": "IMAGE", "link": null},
+        {"name": "clip_4", "type": "IMAGE", "link": null},
+        {"name": "clip_5", "type": "IMAGE", "link": null},
+        {"name": "clip_6", "type": "IMAGE", "link": null}
+      ],
+      "outputs": [
+        {"name": "merged_frames", "type": "IMAGE", "links": [5], "slot_index": 0},
+        {"name": "total_frames", "type": "INT", "links": null, "slot_index": 1},
+        {"name": "duration_seconds", "type": "FLOAT", "links": null, "slot_index": 2}
+      ],
+      "properties": {"Node name for S&R": "LTXFlowSceneBuilder"},
+      "widgets_values": [true, 24]
+    },
+    {
+      "id": 6,
+      "type": "PreviewImage",
+      "pos": [1170, 320],
+      "size": [310, 246],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {"name": "images", "type": "IMAGE", "link": 5}
+      ],
+      "outputs": [],
+      "properties": {"Node name for S&R": "PreviewImage"},
+      "widgets_values": []
+    }
+  ],
+  "links": [
+    [1, 1, 0, 2, 0, "IMAGE"],
+    [2, 2, 0, 3, 0, "IMAGE"],
+    [3, 1, 0, 4, 0, "IMAGE"],
+    [4, 4, 0, 5, 0, "IMAGE"],
+    [5, 5, 0, 6, 0, "IMAGE"]
+  ],
+  "groups": [
+    {
+      "title": "1. Inspect Last Frame",
+      "bounding": [450, 30, 700, 270],
+      "color": "#3f789e",
+      "font_size": 24
+    },
+    {
+      "title": "2. Extract Tail Segment",
+      "bounding": [450, 230, 700, 140],
+      "color": "#8f7b2f",
+      "font_size": 24
+    },
+    {
+      "title": "3. Send Clips To Scene Builder",
+      "bounding": [760, 290, 760, 300],
+      "color": "#527f44",
+      "font_size": 24
+    }
+  ],
+  "config": {},
+  "extra": {
+    "workflow_notes": "Combined utility workflow. Replace LoadImage with an LTX clip IMAGE batch. ExtractFrame previews a chosen frame, ExtractTail creates a continuation segment, and SceneBuilder can merge final clips. For real usage, connect completed LTX clips to SceneBuilder clip_1..clip_6 rather than connecting the tail segment as final video."
+  },
+  "version": 0.4
+}

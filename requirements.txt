@@ -1,0 +1,2 @@
+# No extra runtime dependencies.
+# These nodes use ComfyUI's IMAGE tensors and PyTorch from the host ComfyUI install.
