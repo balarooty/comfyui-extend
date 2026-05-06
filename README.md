@@ -38,6 +38,30 @@ It supports Hugging Face auth if needed:
 HF_TOKEN=hf_xxxxx COMFYUI_DIR=/workspace/ComfyUI bash scripts/download_models.sh
 ```
 
+This script only downloads model files. It does not install ComfyUI custom node packs.
+
+## Install Workflow Custom Nodes
+
+The Qwen Edit to LTX workflow also depends on custom node packs outside this repo. If ComfyUI shows an "Installation Required" dialog for `workflows/05_qwen_edit_to_ltx_first_last.json`, install these packs with ComfyUI Manager:
+
+- `ComfyUI-KJNodes` - provides `LazySwitchKJ`, `VAELoaderKJ`, and `LTX2SamplingPreviewOverride`
+- `WhatDreamsCost-ComfyUI` - provides `LTXSequencer`
+- `ComfyUI Easy Use` - provides `easy mathInt`
+
+Manual install:
+
+```bash
+COMFYUI_DIR=/workspace/ComfyUI bash scripts/install_custom_nodes.sh
+```
+
+Change `COMFYUI_DIR` to your actual ComfyUI path. The helper clones or updates:
+
+- <https://github.com/kijai/ComfyUI-KJNodes>
+- <https://github.com/WhatDreamsCost/WhatDreamsCost-ComfyUI>
+- <https://github.com/yolain/ComfyUI-Easy-Use>
+
+Restart ComfyUI after installing custom nodes, then refresh the browser page.
+
 ## Frontend
 
 Custom frontend code lives here:
@@ -86,6 +110,12 @@ source image + reference image
 ```
 
 The bridge sends the original source image as the LTX first frame and the Qwen-edited image as the LTX last frame.
+
+Required custom node packs:
+
+- `ComfyUI-KJNodes` for `LazySwitchKJ`, `VAELoaderKJ`, and `LTX2SamplingPreviewOverride`
+- `WhatDreamsCost-ComfyUI` for `LTXSequencer`
+- `ComfyUI Easy Use` for `easy mathInt`
 
 Required Qwen models from the official ComfyUI template:
 
