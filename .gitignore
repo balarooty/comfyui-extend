@@ -1,0 +1,37 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+.project
+.pydevproject
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# ComfyUI specific (if symlinked into a full install)
+models/
+output/
+input/
+temp/
