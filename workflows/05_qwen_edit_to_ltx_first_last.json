@@ -2,7 +2,7 @@
   "id": "ltxflow-qwen-edit-to-ltx-first-last",
   "revision": 0,
   "last_node_id": 1501,
-  "last_link_id": 2505,
+  "last_link_id": 2507,
   "nodes": [
     {
       "id": 4,
@@ -406,7 +406,7 @@
         {
           "name": "image",
           "type": "IMAGE",
-          "link": 1048
+          "link": 2506
         },
         {
           "label": "length_seconds",
@@ -649,7 +649,7 @@
         {
           "name": "multi_input",
           "type": "IMAGE",
-          "link": 1046
+          "link": 2507
         },
         {
           "label": "2x_spatial_upscale_model",
@@ -753,7 +753,8 @@
           "type": "IMAGE",
           "links": [
             2376,
-            2503
+            2503,
+            2506
           ]
         },
         {
@@ -1049,7 +1050,8 @@
           "name": "keyframe_batch",
           "type": "IMAGE",
           "links": [
-            2505
+            2505,
+            2507
           ],
           "slot_index": 2
         }
@@ -1306,6 +1308,22 @@
       2,
       1501,
       0,
+      "IMAGE"
+    ],
+    [
+      2506,
+      1041,
+      0,
+      7,
+      0,
+      "IMAGE"
+    ],
+    [
+      2507,
+      1500,
+      2,
+      11,
+      8,
       "IMAGE"
     ]
   ],
