@@ -159,6 +159,25 @@ download_file \
     "https://huggingface.co/Lightricks/LTX-2.3/resolve/main/ltx-2.3-spatial-upscaler-x2-1.1.safetensors"
 
 echo ""
+log "━━━ Downloading LTX 2.3 VAEs (Kijai) ━━━"
+echo ""
+
+download_file \
+    "${BASE_DIR}/vae" \
+    "taeltx2_3.safetensors" \
+    "https://huggingface.co/Kijai/LTX2.3_comfy/resolve/main/vae/taeltx2_3.safetensors"
+
+download_file \
+    "${BASE_DIR}/vae" \
+    "LTX23_video_vae_bf16.safetensors" \
+    "https://huggingface.co/Kijai/LTX2.3_comfy/resolve/main/vae/LTX23_video_vae_bf16.safetensors"
+
+download_file \
+    "${BASE_DIR}/vae" \
+    "LTX23_audio_vae_bf16.safetensors" \
+    "https://huggingface.co/Kijai/LTX2.3_comfy/resolve/main/vae/LTX23_audio_vae_bf16.safetensors"
+
+echo ""
 echo "  =================================================="
 echo "   Downloads complete."
 echo "   Restart ComfyUI, then load:"
