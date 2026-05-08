@@ -111,13 +111,13 @@ mkdir -p \
     "${BASE_DIR}/vae"
 
 echo ""
-log "━━━ Downloading Qwen Image Edit 2511 models ━━━"
+log "━━━ Downloading Qwen Image Edit 2509 models ━━━"
 echo ""
 
 download_file \
     "${BASE_DIR}/diffusion_models" \
-    "qwen_image_edit_2511_bf16.safetensors" \
-    "https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/resolve/main/split_files/diffusion_models/qwen_image_edit_2511_bf16.safetensors"
+    "qwen_image_edit_2509_fp8_e4m3fn.safetensors" \
+    "https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/resolve/main/split_files/diffusion_models/qwen_image_edit_2509_fp8_e4m3fn.safetensors"
 
 download_file \
     "${BASE_DIR}/text_encoders" \
@@ -131,8 +131,8 @@ download_file \
 
 download_file \
     "${BASE_DIR}/loras" \
-    "Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors" \
-    "https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning/resolve/main/Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors"
+    "Qwen-Image-Edit-2509-Lightning-4steps-V1.0-bf16.safetensors" \
+    "https://huggingface.co/lightx2v/Qwen-Image-Lightning/resolve/main/Qwen-Image-Edit-2509-Lightning-4steps-V1.0-bf16.safetensors"
 
 echo ""
 log "━━━ Downloading LTX 2.3 models ━━━"
