@@ -9073,7 +9073,7 @@
               "secondTabWidth": 65
             },
             "widgets_values": [
-              false
+              true
             ]
           },
           {
@@ -9273,7 +9273,7 @@
             "widgets_values": [
               0,
               "randomize",
-              40,
+              4,
               3,
               "euler",
               "simple",
