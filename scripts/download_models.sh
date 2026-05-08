@@ -91,7 +91,7 @@ download_file() {
 echo ""
 echo "  =================================================="
 echo "   ComfyUI-LTXFlow Model Downloader"
-echo "   Qwen Image Edit 2511 + LTX 2.3"
+echo "   Qwen Image Edit 2509 + LTX 2.3"
 echo "  =================================================="
 echo ""
 log "ComfyUI dir: ${COMFYUI_DIR}"
@@ -117,7 +117,7 @@ echo ""
 download_file \
     "${BASE_DIR}/diffusion_models" \
     "qwen_image_edit_2509_fp8_e4m3fn.safetensors" \
-    "https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/resolve/main/split_files/diffusion_models/qwen_image_edit_2509_fp8_e4m3fn.safetensors"
+    "https://huggingface.co/theunlikely/Qwen-Image-Edit-2509/resolve/main/qwen_image_edit_2509_fp8_e4m3fn.safetensors"
 
 download_file \
     "${BASE_DIR}/text_encoders" \
@@ -132,7 +132,7 @@ download_file \
 download_file \
     "${BASE_DIR}/loras" \
     "Qwen-Image-Edit-2509-Lightning-4steps-V1.0-bf16.safetensors" \
-    "https://huggingface.co/lightx2v/Qwen-Image-Lightning/resolve/main/Qwen-Image-Edit-2509-Lightning-4steps-V1.0-bf16.safetensors"
+    "https://huggingface.co/lightx2v/Qwen-Image-Lightning/resolve/main/Qwen-Image-Edit-2509/Qwen-Image-Edit-2509-Lightning-4steps-V1.0-bf16.safetensors"
 
 echo ""
 log "━━━ Downloading LTX 2.3 models ━━━"
